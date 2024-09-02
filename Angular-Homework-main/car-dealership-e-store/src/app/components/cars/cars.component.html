@@ -1,0 +1,42 @@
+ <section>
+    <div class="search-container">
+      <input 
+        type="text" 
+        [(ngModel)]="searchBrand" 
+        placeholder="Search by brand" 
+        
+      />
+  
+      <input 
+        type="number" 
+        [(ngModel)]="fromPrice" 
+        placeholder="From price" 
+      />
+  
+      <input 
+        type="number" 
+        [(ngModel)]="toPrice" 
+        placeholder="To price" 
+      />
+     
+    </div>
+  
+    <div *ngIf="(cars() | carBrandFilter:searchBrand:fromPrice:toPrice).length === 0">
+      <p>No cars found matching the criteria.</p>
+    </div>
+  </section>
+
+ <section>
+  <h1>Home</h1>
+  <ul class="car-list">
+    <li *ngFor="let car of cars() | carBrandFilter:searchBrand:fromPrice:toPrice" class="car-item">
+      <app-single-car [car]="car"></app-single-car>
+    </li>
+  </ul>
+</section>
+
+
+
+
+ 
+  

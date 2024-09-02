@@ -1,0 +1,76 @@
+<!-- <section>
+  <h2>Create a New Car</h2>
+
+  <div>
+
+  <label for="description">Description:</label>
+  <input type="text" [(ngModel)]="description" />
+
+  <label for="price">Price:</label>
+  <input type="number" [(ngModel)]="price" />
+
+  <label for="brand">Brand:</label>
+  <input type="text" [(ngModel)]="brand" />
+
+  <label for="model">Model:</label>
+  <input type="text" [(ngModel)]="model" />
+
+  <label for="image">Image URL:</label>
+  <input type="text" [(ngModel)]="image" />
+
+  <button (click)="submitCarForm()">Create</button>
+</div>
+
+  </section>
+  
+
+  <section>
+    <h1>Cars List</h1>
+  
+    <ul class="car-list">
+      <li *ngFor="let car of cars" class="car-item">
+        <app-single-car [car]="car"></app-single-car>
+      </li>
+    </ul>
+  </section>
+  
+   -->
+   <section>
+    
+  
+    <form class="myForm" (ngSubmit)="submitCarForm(carForm)" #carForm="ngForm">
+      <h2>Create a New Car</h2>
+      <label for="description">Description:</label>
+      <input type="text" ngModel name="description" required #description="ngModel" />
+      <span *ngIf="description.invalid && description.touched">Description is required</span>
+  
+      <label for="price">Price:</label>
+      <input type="number" ngModel name="price" required #price="ngModel" />
+      <span *ngIf="price.invalid && price.touched">Price is required</span>
+  
+      <label for="brand">Brand:</label>
+      <input type="text" ngModel name="brand" required #brand="ngModel" />
+      <span *ngIf="brand.invalid && brand.touched">Brand is required</span>
+  
+      <label for="model">Model:</label>
+      <input type="text" ngModel name="model" required #model="ngModel" />
+      <span *ngIf="model.invalid && model.touched">Model is required</span>
+  
+      <label for="image">Image URL:</label>
+      <input type="text" ngModel name="image" #image="ngModel" />
+  
+      <button type="submit" [disabled]="carForm.invalid">Create</button>
+    </form>
+  </section>
+  
+
+  <section class="list-section">
+    <h1>Cars List</h1>
+    <ul class="car-list">
+      <li *ngFor="let car of cars" class="car-item">
+        <app-single-car [car]="car"></app-single-car>
+      </li>
+    </ul>
+  </section>
+  
+  

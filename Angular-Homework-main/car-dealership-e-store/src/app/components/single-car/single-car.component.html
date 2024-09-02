@@ -1,0 +1,27 @@
+<div class="car-card" *ngIf="car()">
+  <div class="car-images" (click)="toggleDetails()">
+    <img *ngFor="let image of car().images" [src]="image" alt="{{ car().brand }} {{ car().model }}"> 
+   
+  </div>
+  
+  <div class="car-details" *ngIf="showDetails">
+    <h4>{{ car().brand }} {{ car().model }}</h4>
+    <p>{{ car().description }}</p>
+    <p>Price: {{ car().price | currency }}</p>
+    <p>Year: {{ car().year }}</p>
+    <p>Type: {{ car().type }}</p>
+    <p>Color: {{ car().color }}</p>
+    <p>Fuel Type: {{ car().fuelType }}</p>
+    <p>Distance: {{ car().distance }} km</p>
+    <p>Location: {{ car().location?.city }}, {{ car().location?.country }}</p>
+    <p>Engine Power: {{ car().enginePower }} kW</p>
+    <p>Doors: {{ car().doors }}</p>
+    <p>Seats: {{ car().seats }}</p>
+    <p>Transmission: {{ car().transmission }}</p>
+    <button (click)="removeCar()">Remove Car</button>
+  </div>
+</div>
+
+
+
+
