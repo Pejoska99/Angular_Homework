@@ -1,0 +1,20 @@
+
+mat-card {
+    margin: 20px;
+    background-color: #7fb6cf; 
+    padding: 20px; 
+    border-radius: 8px; 
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+}
+  
+  
+  mat-card-title {
+    font-size: 24px;
+    font-weight: bold;
+    color: #e9e4e4;
+  }
+  
+  mat-card-content {
+    font-size: 16px;
+  }
+  
