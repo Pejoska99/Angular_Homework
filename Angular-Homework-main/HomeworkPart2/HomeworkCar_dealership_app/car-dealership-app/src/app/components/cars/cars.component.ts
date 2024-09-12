@@ -9,12 +9,13 @@ import { finalize, map, tap } from 'rxjs/operators';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { Router } from '@angular/router';
 import { FormsModule } from '@angular/forms';
+import { SearchComponent } from '../search/search.component';
 
 
 @Component({
   selector: 'app-cars',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatGridList, MatGridTile, FormsModule],
+  imports: [CommonModule, MatCardModule, MatGridList, MatGridTile, FormsModule, SearchComponent],
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css'],
 })
@@ -24,6 +25,7 @@ export class CarsComponent implements OnInit {
   total = signal<number>(0);
   pageSize = signal<number>(0);
   page = signal<number>(0);
+  searchTerm = signal<string>('');
 
   constructor(private carService: CarService, private router: Router) {}
 
@@ -44,6 +46,10 @@ export class CarsComponent implements OnInit {
              }),
       finalize(() => this.isLoading.set(false))
     );
+  }
+  onSearchTermUpdate(searchTerm: string): void {
+    this.searchTerm.set(searchTerm);
+    this.getCars({ searchTerm })
   }
   viewDetails(carId: string): void {
     
