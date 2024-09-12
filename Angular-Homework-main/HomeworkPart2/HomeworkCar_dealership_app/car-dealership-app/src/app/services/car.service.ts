@@ -29,4 +29,17 @@ export class CarService {
     )
     
   }
+  getCarById(id: string): Observable<Car> {
+    const url = `${this.apiUrl}/${id}`;
+    return this.http.get<Car>(url).pipe(
+      catchError(error => {
+        console.error(`Error fetching car with id=${id}`, error);
+        return of(null as unknown as Car); 
+      })
+    );
+  }
 }
+
+// getRoom(id: string): Observable<Room> {
+//   return this.http.get<Room>(`${this.roomPath}/${id}`);
+// }

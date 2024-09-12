@@ -8,12 +8,13 @@ import { ApiResponse } from '../../types/response.interface';
 import { finalize, map, tap } from 'rxjs/operators';
 import { MatGridList, MatGridTile } from '@angular/material/grid-list';
 import { Router } from '@angular/router';
+import { FormsModule } from '@angular/forms';
 
 
 @Component({
   selector: 'app-cars',
   standalone: true,
-  imports: [CommonModule, MatCardModule, MatGridList, MatGridTile],
+  imports: [CommonModule, MatCardModule, MatGridList, MatGridTile, FormsModule],
   templateUrl: './cars.component.html',
   styleUrls: ['./cars.component.css'],
 })
@@ -43,6 +44,10 @@ export class CarsComponent implements OnInit {
              }),
       finalize(() => this.isLoading.set(false))
     );
+  }
+  viewDetails(carId: string): void {
+    
+    this.router.navigate(['/car', carId]);
   }
 }
 

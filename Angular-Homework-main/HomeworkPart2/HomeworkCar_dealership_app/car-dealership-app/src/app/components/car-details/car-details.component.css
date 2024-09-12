@@ -1,0 +1,61 @@
+mat-card {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 16px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  
+
+  mat-card-header {
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 16px;
+    margin-bottom: 16px;
+  }
+  
+ 
+  mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 500;
+    color: #333;
+  }
+  
+  mat-card-subtitle {
+    font-size: 1.2rem;
+    color: #666;
+  }
+ 
+  mat-card-content {
+    font-size: 1rem;
+    color: #444;
+    line-height: 1.5;
+  }
+  
+
+  mat-card-image {
+    border-radius: 8px;
+    margin-bottom: 16px;
+  }
+  
+
+  mat-card-content p {
+    margin: 8px 0;
+  }
+  
+  mat-card-content p strong {
+    color: #000;
+  }
+
+
+  
+mat-card-image {
+    width: 100%; 
+    height: auto; 
+  
+  }
+  
+  mat-card-content img {
+    display: block; 
+  }
+  
+  

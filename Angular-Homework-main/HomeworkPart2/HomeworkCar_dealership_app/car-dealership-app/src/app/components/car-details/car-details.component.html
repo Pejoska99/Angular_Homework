@@ -1,0 +1,27 @@
+<mat-card *ngIf="car$ | async as car ">
+    <mat-card-header>
+      <mat-card-title>{{ car.brand }} {{ car.model }}</mat-card-title>
+      <mat-card-subtitle>{{ car.price | currency }}</mat-card-subtitle>
+    </mat-card-header>
+    <mat-card-content>
+      <img mat-card-image [src]="car.images[0]" alt="{{ car.brand }} {{ car.model }}" width="100%" height="150px" />
+  
+      <p><strong>Description:</strong> {{ car.description }}</p>
+  
+      <p *ngIf="car.year"><strong>Year:</strong> {{ car.year }}</p>
+
+      <p *ngIf="car.color"><strong>Color:</strong> {{ car.color }}</p>
+      <p *ngIf="car.fuelType"><strong>Fuel Type:</strong> {{ car.fuelType }}</p>
+      <p *ngIf="car.distance"><strong>Distance Driven:</strong> {{ car.distance | number }} km</p>
+      <p *ngIf="car.isNew !== undefined"><strong>Condition:</strong> {{ car.isNew ? 'New' :'Used' }}</p>
+      <p *ngIf="car.location"><strong>Location:</strong> {{ car.location.city }}, {{ car.location.country }}</p>
+      <p *ngIf="car.enginePower"><strong>Engine Power:</strong> {{ car.enginePower }} HP</p>
+      <p *ngIf="car.doors"><strong>Doors:</strong> {{ car.doors }}</p>
+      <p *ngIf="car.seats"><strong>Seats:</strong> {{ car.seats }}</p>
+      <p *ngIf="car.transmission"><strong>Transmission:</strong> {{ car.transmission }}</p>
+      <p *ngIf="car.type"><strong>Type:</strong> {{ car.type }}</p>
+    </mat-card-content>
+ 
+  </mat-card>
+
+ 
